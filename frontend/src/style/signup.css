@@ -1,0 +1,32 @@
+.signup-input-group {
+    width: 350px;
+}
+
+.signup-input {
+    border: 1px solid #ced4da;
+    border-radius: 10px !important;
+    margin: 10px 0;
+    height: 50px;
+    font-size: 12px;
+    color: #7a7a7a;
+}
+
+.signup-btn {
+    background-color: #1c8ae5;
+    border: none;
+    border-radius: 10px;
+    margin: 30px 0 100px 0;
+    width: 350px;
+}
+
+.email-container {
+    display: flex;
+    align-items: center;
+}
+
+.duplicate-btn {
+    color: #1c8ae5;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+}

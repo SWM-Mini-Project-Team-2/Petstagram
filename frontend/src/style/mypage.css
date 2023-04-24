@@ -1,0 +1,215 @@
+.main-container {
+    height: 100%;
+}
+
+.my-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.my-container .my-sub-container {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    margin: 40px 0 20px 0;
+}
+
+.my-container #my-account-icon {
+    font-size: 160px;
+    color: black;
+}
+
+.my-container .my-info-container {
+    margin: 0 0 0 60px;
+    /* background-color: yellow; */
+}
+
+.my-container .my-name {
+    font-size: 20px;
+}
+
+.my-container .my-posts-container {
+    /* background-color: aqua; */
+    margin: 10px 0;
+}
+
+.my-container .my-post {
+    font-weight: bold;
+}
+
+.line {
+    width: 35%;
+    color: #c9c9c9;
+}
+
+.content-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0 0 50px 0;
+}
+
+.sub-container {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
+
+.col-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+}
+
+.img-container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 20px 30px;
+    background-color: white;
+    border-radius: 20px;
+    word-wrap: break-word;
+}
+
+.img-container .pet-img:hover {
+    transform: scale(1.05);
+    transition: all 0.5s ease;
+}
+
+.img-container .pet-img {
+    border-radius: 10px;
+    margin: 0 0 10px 0;
+    width: 100%;
+    cursor: pointer;
+}
+
+.img-container .info-container {
+    display: flex;
+}
+
+.img-container .info-container .icon-container {
+    display: flex;
+    align-items: center;
+    margin: 3px 10px 3px 0;
+}
+
+/* icon */
+.material-symbols-outlined {
+    margin: 0 5px 0 0;
+}
+
+/* like icon */
+#like-icon {
+    color: red;
+}
+
+#account-icon {
+    font-size: 36px;
+    padding: 0 5px;
+}
+
+.number {
+    font-family: "Bitter";
+}
+
+/* lightbox */
+.lightbox {
+    position: fixed;
+    /* z-index: 1099; */
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+.lightbox.open {
+    display: flex;
+}
+
+.lightbox .img-box {
+    position: relative;
+    cursor: auto;
+    border-radius: 20px;
+    background-color: white;
+    padding: 0px 80px 0px 60px;
+    width: 60%;
+}
+
+.lightbox .lightbox-header {
+    display: flex;
+    margin: 10px 0;
+    height: 50px;
+}
+
+.lightbox .lightbox-follow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+}
+
+.lightbox .account-container {
+    display: flex;
+    align-items: center;
+}
+
+.account-name {
+    font-size: 20px;
+}
+
+.lightbox .follow-btn:hover {
+    cursor: pointer;
+}
+
+.lightbox .lightbox-delete-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 30%;
+    color: red;
+    cursor: pointer;
+}
+
+.lightbox-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.lightbox .lightbox-img {
+    width: 70%;
+    max-height: calc(100vh - 200px) !important;
+    border-radius: 10px;
+}
+
+.lightbox .lightbox-description {
+    width: 28%;
+    padding: 10px;
+    font-family: "Bitter";
+}
+
+.lightbox .lightbox-info {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.lightbox .info-container {
+    display: flex;
+}
+
+.lightbox .icon-container {
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+}
+
+.lightbox .like-btn:hover {
+    cursor: pointer;
+}

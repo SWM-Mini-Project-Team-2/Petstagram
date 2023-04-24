@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <link rel="stylesheet" type="text/css" href="../style/index.css" />
+        <link rel="stylesheet" type="text/css" href="../style/signup.css" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://fonts.googleapis.com/css?family=Bitter"
+        />
+        <title>Petstagram</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="login">
+                <div class="logo">Petstagram</div>
+                <form class="signup-form" novalidate>
+                    <div class="signup-input-group input-group mb-3">
+                        <input
+                            id="signup-email"
+                            type="email"
+                            class="form-control signup-input"
+                            placeholder="Email"
+                            required
+                        />
+                        <div class="email-container">
+                            <div class="duplicate-btn">check</div>
+                        </div>
+                        <div class="invalid-feedback">
+                            Email format is invalid!
+                        </div>
+                    </div>
+                    <div class="signup-input-group input-group mb-3">
+                        <input
+                            id="signup-name"
+                            type="text"
+                            class="form-control signup-input"
+                            placeholder="Name"
+                            pattern=".{6,}"
+                            required
+                        />
+                        <div class="invalid-feedback">
+                            Name should be 6 or more characters!
+                        </div>
+                    </div>
+                    <div class="signup-input-group input-group mb-3">
+                        <input
+                            id="signup-pw"
+                            type="password"
+                            class="form-control signup-input"
+                            placeholder="Password"
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                            required
+                        />
+                        <div class="invalid-feedback">
+                            Must contain at least one number and one uppercase
+                            and lowercase letter, and at least 8 or more
+                            characters!
+                        </div>
+                    </div>
+
+                    <div class="signup-input-group input-group mb-3">
+                        <input
+                            id="signup-confirm-pw"
+                            type="password"
+                            class="form-control signup-input"
+                            placeholder="Confirm password"
+                            required
+                        />
+                        <div class="invalid-feedback">
+                            Enter password again!
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary signup-btn">
+                        Signup
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <script src="../util/jquery.min.js"></script>
+        <script
+            type="module"
+            src="../controller/signupPageController.js"
+        ></script>
+    </body>
+</html>
