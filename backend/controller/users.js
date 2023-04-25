@@ -5,16 +5,21 @@ const userRef = db.collection("user");
 
 // GET users
 const getUsers = async (req, res) => {
-    const snapshot = await userRef.get();
-    // const snapshot = await userRef.where("name", "==", "Tom").get();
-    const data = [];
-    snapshot.forEach((doc) => {
-        const eachData = doc.data();
-        eachData.id = doc.id;
+    try {
+        const snapshot = await userRef.get();
+        // const snapshot = await userRef.where("name", "==", "Tom").get();
+        const data = [];
+        snapshot.forEach((doc) => {
+            const eachData = doc.data();
+            eachData.id = doc.id;
 
-        data.push(eachData);
-    });
-    res.status(200).json({ data });
+            data.push(eachData);
+        });
+        res.status(200).json({ data });
+    } catch (e) {
+        console.log(e);
+        res.status(400).json({ error: "Error" });
+    }
 };
 
 // Login
