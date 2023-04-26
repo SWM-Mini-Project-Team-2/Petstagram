@@ -41,7 +41,7 @@ const login = async (req, res) => {
             res.cookie("token", id, {
                 maxAge: 1000 * 60 * 60 * 24,
             });
-            res.status(200).json({ data: "success" });
+            res.status(200).json({ data: "success", token: id });
         } else {
             res.status(200).json({ data: "wrong" });
         }
@@ -94,7 +94,7 @@ const checkDuplication = async (req, res) => {
 const followUser = async (req, res) => {
     try {
         const followUserId = req.params.userId;
-        const userId = req.cookies["token"];
+        const userId = req.headers["authorization"].split(" ")[1];
 
         const userSnapShot = await userRef.doc(userId).get();
         const userData = userSnapShot.data();
@@ -131,7 +131,7 @@ const followUser = async (req, res) => {
 // get my name
 const getMyName = async (req, res) => {
     try {
-        const userId = req.cookies["token"];
+        const userId = req.headers["authorization"].split(" ")[1];
 
         const userSnapShot = await userRef.doc(userId).get();
         const userData = userSnapShot.data();

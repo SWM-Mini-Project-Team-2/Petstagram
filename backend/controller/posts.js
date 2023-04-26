@@ -11,7 +11,7 @@ const getPosts = async (req, res) => {
         const sort = req.query["sort"];
         const follow = JSON.parse(req.query["follow"]);
         const like = JSON.parse(req.query["like"]);
-        const userId = req.cookies["token"];
+        const userId = req.headers["authorization"].split(" ")[1];
 
         let order = sort == 0 ? "createdAt" : "like";
         let follows, likes;
@@ -59,7 +59,7 @@ const getPosts = async (req, res) => {
 // GET my posts
 const getMyPosts = async (req, res) => {
     try {
-        const userId = req.cookies["token"];
+        const userId = req.headers["authorization"].split(" ")[1];
 
         let order = "createdAt";
 
@@ -111,12 +111,13 @@ const createPost = async (req, res) => {
     try {
         const randomId = uuid();
         const today = new Date();
-        const cookie = req.cookies["token"];
+        const userId = req.headers["authorization"].split(" ")[1];
 
         let data = req.body;
-        console.log(cookie);
+        console.log(userId);
         console.log(data);
-        data["userId"] = cookie;
+
+        data["userId"] = userId;
         data["view"] = 0;
         data["like"] = 0;
         data["createdAt"] = today.toISOString();
@@ -132,7 +133,7 @@ const createPost = async (req, res) => {
 const likePost = async (req, res) => {
     try {
         const postId = req.params.postId;
-        const userId = req.cookies["token"];
+        const userId = req.headers["authorization"].split(" ")[1];
 
         const likeSnapShot = await likeRef.doc(userId).get();
         const likeData = likeSnapShot.data();
@@ -192,7 +193,7 @@ const likePost = async (req, res) => {
 const checkPostLiked = async (req, res) => {
     try {
         const postId = req.params.postId;
-        const userId = req.cookies["token"];
+        const userId = req.headers["authorization"].split(" ")[1];
 
         const likeSnapShot = await likeRef.doc(userId).get();
         const likeData = likeSnapShot.data();
@@ -225,7 +226,7 @@ const checkPostLiked = async (req, res) => {
 const checkFollowed = async (req, res) => {
     try {
         const postId = req.params.postId;
-        const userId = req.cookies["token"];
+        const userId = req.headers["authorization"].split(" ")[1];
 
         const postSnapShot = await postRef.doc(postId).get();
         const postData = postSnapShot.data();
