@@ -25,7 +25,8 @@ const pageData = {
 };
 
 async function displayPost(sort_string) {
-    const currentUrl = location.pathname.split("/")[3];
+    const urls = location.pathname.split("/");
+    const currentUrl = urls[urls.length - 1];
 
     if (currentUrl in pageData) {
         let sort = pageData[currentUrl]["sort"];

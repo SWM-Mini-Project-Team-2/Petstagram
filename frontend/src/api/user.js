@@ -12,7 +12,7 @@ const login = (email, password, func) => {
         data: { email, password },
     }).then(
         (data, textStatus, jqXHR) => {
-            console.log(data);
+            window.localStorage.setItem("cookie", data["token"]);
             if (data["data"] == "wrong") {
                 $(".incorrect-login").css("color", "red");
             } else {
@@ -74,6 +74,12 @@ const followUser = (userId) => {
             xhrFields: {
                 withCredentials: true,
             },
+            beforeSend: (xhr) => {
+                xhr.setRequestHeader(
+                    "Authorization",
+                    "Bearer " + window.localStorage.getItem("cookie")
+                );
+            },
             success: (res) => {
                 resolve(res.data);
             },
@@ -93,6 +99,12 @@ const getMyName = () => {
             type: "get",
             xhrFields: {
                 withCredentials: true,
+            },
+            beforeSend: (xhr) => {
+                xhr.setRequestHeader(
+                    "Authorization",
+                    "Bearer " + window.localStorage.getItem("cookie")
+                );
             },
             success: (res) => {
                 resolve(res.data);

@@ -13,6 +13,12 @@ const searchPosts = (sort, follow, like) => {
             xhrFields: {
                 withCredentials: true,
             },
+            beforeSend: (xhr) => {
+                xhr.setRequestHeader(
+                    "Authorization",
+                    "Bearer " + window.localStorage.getItem("cookie")
+                );
+            },
             success: (res) => {
                 resolve(res);
             },
@@ -32,6 +38,12 @@ const searchMyPosts = () => {
             type: "get",
             xhrFields: {
                 withCredentials: true,
+            },
+            beforeSend: (xhr) => {
+                xhr.setRequestHeader(
+                    "Authorization",
+                    "Bearer " + window.localStorage.getItem("cookie")
+                );
             },
             success: (res) => {
                 resolve(res);
@@ -69,6 +81,12 @@ const upload = (imgSrc, description, func) => {
         xhrFields: {
             withCredentials: true,
         },
+        beforeSend: (xhr) => {
+            xhr.setRequestHeader(
+                "Authorization",
+                "Bearer " + window.localStorage.getItem("cookie")
+            );
+        },
         data: { imgSrc, description },
     }).then(
         (data, textStatus, jqXHR) => {
@@ -90,6 +108,12 @@ const likePost = (postId) => {
             xhrFields: {
                 withCredentials: true,
             },
+            beforeSend: (xhr) => {
+                xhr.setRequestHeader(
+                    "Authorization",
+                    "Bearer " + window.localStorage.getItem("cookie")
+                );
+            },
             success: (res) => {
                 resolve(res.data);
             },
@@ -110,6 +134,12 @@ const checkPostLiked = (postId) => {
             xhrFields: {
                 withCredentials: true,
             },
+            beforeSend: (xhr) => {
+                xhr.setRequestHeader(
+                    "Authorization",
+                    "Bearer " + window.localStorage.getItem("cookie")
+                );
+            },
             success: (res) => {
                 resolve(res.data);
             },
@@ -129,6 +159,12 @@ const checkPostFollwed = (postId) => {
             type: "get",
             xhrFields: {
                 withCredentials: true,
+            },
+            beforeSend: (xhr) => {
+                xhr.setRequestHeader(
+                    "Authorization",
+                    "Bearer " + window.localStorage.getItem("cookie")
+                );
             },
             success: (res) => {
                 resolve(res.data);
