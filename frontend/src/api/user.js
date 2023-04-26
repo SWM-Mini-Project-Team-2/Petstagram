@@ -1,4 +1,5 @@
-const url = "http://localhost:8000/user";
+const url =
+    "https://port-0-petstagram-17xqnr2llgvnc72n.sel3.cloudtype.app/user";
 
 // GET /user
 // login a user
